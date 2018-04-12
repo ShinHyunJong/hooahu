@@ -34545,19 +34545,26 @@
 	        _MuiThemeProvider2.default,
 	        { muiTheme: muiTheme },
 	        _react2.default.createElement(
-	          "div",
+	          _reactRouterDom.BrowserRouter,
 	          null,
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _Pages.SignUpPage }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/choose", component: _Pages.SignUpChoose }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/email", component: _Pages.SignUpEmail }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/username", component: _Pages.SignUpUserName }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/civ", component: _Pages.SignUpCiv }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/unit", component: _Pages.SignUpUnit }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/business", component: _Pages.SignUpBusiness }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/reason", component: _Pages.SignUpWork }),
-	          _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/editor_choice", component: _Pages.EditorChoicePage }),
-	          _react2.default.createElement(_reactRouterDom.Route, { path: "/editor_choice/:package", component: _Pages.EditorDetailPage })
+	          _react2.default.createElement(
+	            "div",
+	            null,
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _Pages.SignUpPage }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/choose", component: _Pages.SignUpChoose }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/email", component: _Pages.SignUpEmail }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/username", component: _Pages.SignUpUserName }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/civ", component: _Pages.SignUpCiv }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/unit", component: _Pages.SignUpUnit }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/business", component: _Pages.SignUpBusiness }),
+	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/reason", component: _Pages.SignUpWork }),
+	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/editor_choice", component: _Pages.EditorChoicePage }),
+	            _react2.default.createElement(_reactRouterDom.Route, {
+	              path: "/editor_choice/:package",
+	              component: _Pages.EditorDetailPage
+	            })
+	          )
 	        )
 	      );
 	    }
