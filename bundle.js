@@ -8955,7 +8955,7 @@
 	  { store: store },
 	  _react2.default.createElement(
 	    _reactRouterDom.BrowserRouter,
-	    { basename: "/hooahu" },
+	    null,
 	    _react2.default.createElement(
 	      _MuiThemeProvider2.default,
 	      { muiTheme: muiTheme },
@@ -41529,7 +41529,7 @@
 /* 582 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	"use strict";
+	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -41599,8 +41599,16 @@
 	          _react2.default.createElement(
 	            "div",
 	            null,
-	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
-	            _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _Pages.SignUpPage }),
+	            _react2.default.createElement(_reactRouterDom.Route, {
+	              exact: true,
+	              path: process.env.PUBLIC_URL + "/",
+	              component: _Pages.HomePage
+	            }),
+	            _react2.default.createElement(_reactRouterDom.Route, {
+	              exact: true,
+	              path: process.env.PUBLIC_URL + "/signup",
+	              component: _Pages.SignUpPage
+	            }),
 	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/choose", component: _Pages.SignUpChoose }),
 	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/email", component: _Pages.SignUpEmail }),
 	            _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/username", component: _Pages.SignUpUserName }),
@@ -41623,6 +41631,7 @@
 	}(_react.Component);
 	
 	exports.default = App;
+	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(329)))
 
 /***/ }),
 /* 583 */
