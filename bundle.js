@@ -41624,7 +41624,7 @@
 /* 583 */
 /***/ (function(module, exports, __webpack_require__) {
 
-	/* WEBPACK VAR INJECTION */(function(process) {"use strict";
+	"use strict";
 	
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
@@ -41675,17 +41675,11 @@
 	  _createClass(App, [{
 	    key: "render",
 	    value: function render() {
-	      console.log(process.env.PUBLIC_URL);
-	
 	      return _react2.default.createElement(
 	        "div",
 	        null,
-	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: process.env.PUBLIC_URL + "/", component: _Pages.HomePage }),
-	        _react2.default.createElement(_reactRouterDom.Route, {
-	          exact: true,
-	          path: process.env.PUBLIC_URL + "/signup",
-	          component: _Pages.SignUpPage
-	        }),
+	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/", component: _Pages.HomePage }),
+	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _Pages.SignUpPage }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/choose", component: _Pages.SignUpChoose }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/email", component: _Pages.SignUpEmail }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/username", component: _Pages.SignUpUserName }),
@@ -41703,7 +41697,6 @@
 	}(_react.Component);
 	
 	exports.default = (0, _reactRouterDom.withRouter)((0, _reactRedux.connect)(mapStateToProps)(App));
-	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(328)))
 
 /***/ }),
 /* 584 */
