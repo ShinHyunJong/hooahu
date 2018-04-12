@@ -41679,7 +41679,11 @@
 	        "div",
 	        null,
 	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: process.env.PUBLIC_URL + "/", component: _Pages.HomePage }),
-	        _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: "/signup", component: _Pages.SignUpPage }),
+	        _react2.default.createElement(_reactRouterDom.Route, {
+	          exact: true,
+	          path: process.env.PUBLIC_URL + "/signup",
+	          component: _Pages.SignUpPage
+	        }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/choose", component: _Pages.SignUpChoose }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/email", component: _Pages.SignUpEmail }),
 	        _react2.default.createElement(_reactRouterDom.Route, { path: "/signup/username", component: _Pages.SignUpUserName }),
