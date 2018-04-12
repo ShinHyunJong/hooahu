@@ -41675,6 +41675,8 @@
 	  _createClass(App, [{
 	    key: "render",
 	    value: function render() {
+	      console.log(process.env.PUBLIC_URL);
+	
 	      return _react2.default.createElement(
 	        "div",
 	        null,
