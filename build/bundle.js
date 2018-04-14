@@ -8957,7 +8957,7 @@
 	  { store: store },
 	  _react2.default.createElement(
 	    _reactRouterDom.BrowserRouter,
-	    null,
+	    { basename: "/hooahu" },
 	    _react2.default.createElement(
 	      _MuiThemeProvider2.default,
 	      { muiTheme: muiTheme },
