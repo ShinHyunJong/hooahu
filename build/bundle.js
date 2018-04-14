@@ -60601,7 +60601,7 @@
 /* 654 */
 /***/ (function(module, exports) {
 
-	module.exports = {"concept":[{"label":"All","clicked":true},{"label":"Calm","clicked":false,"value":"calm"},{"label":"ThrillSeeker","clicked":false,"value":"activity"},{"label":"SightSeeing","clicked":false,"value":"sightSeeing"},{"label":"Swagger","clicked":false,"value":"luxury"},{"label":"Dandy","clicked":false,"value":"dandy"},{"label":"Romantic","clicked":false,"value":"love"},{"label":"Gourmand","clicked":false,"value":"food"},{"label":"PartyAnimal","clicked":false,"value":"party"}],"day":[{"label":"All","clicked":true},{"label":"1 Day","clicked":false},{"label":"2 Day","clicked":false},{"label":"3 Day","clicked":false}],"area":[{"label":"All","clicked":true},{"label":"Area 1","clicked":false},{"label":"Area 2","clicked":false},{"label":"Area 3","clicked":false},{"label":"Area 4","clicked":false}]}
+	module.exports = {"concept":[{"label":"All","clicked":true},{"label":"Calm","clicked":false,"value":"calm"},{"label":"Sight Seeing","clicked":false,"value":"sightSeeing"},{"label":"Dandy","clicked":false,"value":"dandy"},{"label":"Hearty Eater","clicked":false,"value":"food"},{"label":"Alive","clicked":false,"value":"activity"},{"label":"Swagger","clicked":false,"value":"luxury"},{"label":"Romantic","clicked":false,"value":"love"},{"label":"Party Animal","clicked":false,"value":"party"}],"day":[{"label":"All","clicked":true},{"label":"1 Day","clicked":false},{"label":"2 Days","clicked":false},{"label":"3 Days","clicked":false}],"area":[{"label":"All","clicked":true},{"label":"Area 1","clicked":false},{"label":"Area 2","clicked":false},{"label":"Area 3","clicked":false},{"label":"Area 4","clicked":false}]}
 
 /***/ }),
 /* 655 */
@@ -73141,7 +73141,7 @@
 	
 	          var newEditor = editorChoice.slice();
 	          newEditor = _lodash2.default.sortBy(newEditor, function (item) {
-	            return [item.concept[concept[index].value], _this.state.selectedConcept.map(function (data, index) {
+	            return [_this.state.selectedConcept.map(function (data, index) {
 	              return item.concept[data];
 	            })];
 	          }).reverse();
@@ -73154,10 +73154,9 @@
 	          if (_newValue[0].clicked === true) {
 	            var _newConcept = [];
 	            _newConcept.push(concept[index].value);
-	            _this.setState({ selectedConcept: _newConcept });
 	            var _newEditor = editorChoice.slice();
 	            _newEditor = _lodash2.default.sortBy(_newEditor, function (item) {
-	              return [item.concept[concept[index].value], _this.state.selectedConcept.map(function (data, index) {
+	              return [_newConcept.map(function (data, index) {
 	                return item.concept[data];
 	              })];
 	            }).reverse();
@@ -73175,46 +73174,48 @@
 	            _newValue[index].clicked = true;
 	            _this.setState({
 	              isClicked: _newValue,
-	              editorChoice: _newEditor
+	              editorChoice: _newEditor,
+	              selectedConcept: _newConcept
 	            });
 	          } else {
 	            //Push Selected Concept
 	            var _newConcept2 = _this.state.selectedConcept.slice();
-	            if (_newConcept2.indexOf(concept[index].value) === -1) {
-	              _newConcept2.push(concept[index].value);
-	            }
+	            _newConcept2.push(concept[index].value);
+	            _this.setState({ selectedConcept: _newConcept2 });
 	            var _newEditor2 = editorChoice.slice();
 	            _newEditor2 = _lodash2.default.sortBy(_newEditor2, function (item) {
-	              return [item.concept[concept[index].value], _this.state.selectedConcept.map(function (data, index) {
+	              return [_newConcept2.map(function (data, index) {
 	                return item.concept[data];
 	              })];
 	            }).reverse();
-	            console.log(_newEditor2);
 	            _newValue[0].clicked = false;
 	            _newValue[index].clicked = true;
 	            _this.setState({
 	              isClicked: _newValue,
-	              selectedConcept: _newConcept2,
-	              editorChoice: _newEditor2
+	              editorChoice: _newEditor2,
+	              selectedConcept: _newConcept2
 	            });
 	          }
 	        }
 	      } else {
 	        var _newValue2 = _this.state.isClicked.slice();
 	        _newValue2[index].clicked = false;
+	        _this.setState({ isClicked: _newValue2 });
 	
 	        //Remove Selected Concept
 	        var _newConcept3 = _this.state.selectedConcept.slice();
 	        _newConcept3.splice(_newConcept3.indexOf(concept[index].value), 1); //num will be [1, 2, 3, 5];
-	        _this.setState({ isClicked: _newValue2, selectedConcept: _newConcept3 });
 	
 	        var _newEditor3 = editorChoice.slice();
 	        _newEditor3 = _lodash2.default.sortBy(_newEditor3, function (item) {
-	          return [item.concept[concept[index].value], _this.state.selectedConcept.map(function (data, index) {
+	          return [_newConcept3.map(function (data, index) {
 	            return item.concept[data];
 	          })];
 	        }).reverse();
-	        _this.setState({ editorChoice: _newEditor3 });
+	        _this.setState({
+	          editorChoice: _newEditor3,
+	          selectedConcept: _newConcept3
+	        });
 	      }
 	    };
 	
@@ -73258,7 +73259,6 @@
 	    value: function render() {
 	      var _this2 = this;
 	
-	      console.log(this.state.selectedConcept);
 	      var _state = this.state,
 	          isClicked = _state.isClicked,
 	          selectedArea = _state.selectedArea,
@@ -73450,7 +73450,7 @@
 	                          _react2.default.createElement(
 	                            "span",
 	                            null,
-	                            "SightSeeing"
+	                            "Sight Seeing"
 	                          )
 	                        ),
 	                        _react2.default.createElement(
@@ -73510,7 +73510,7 @@
 	                          _react2.default.createElement(
 	                            "span",
 	                            null,
-	                            "Food"
+	                            "Hearty eater"
 	                          )
 	                        ),
 	                        _react2.default.createElement(
@@ -73544,7 +73544,7 @@
 	                          _react2.default.createElement(
 	                            "span",
 	                            null,
-	                            "Activity"
+	                            "Alive"
 	                          )
 	                        ),
 	                        _react2.default.createElement(
@@ -73574,7 +73574,7 @@
 	                          _react2.default.createElement(
 	                            "span",
 	                            null,
-	                            "Luxury"
+	                            "Swagger"
 	                          )
 	                        ),
 	                        _react2.default.createElement(
@@ -73634,7 +73634,7 @@
 	                          _react2.default.createElement(
 	                            "span",
 	                            null,
-	                            "Party"
+	                            "Party Animal"
 	                          )
 	                        ),
 	                        _react2.default.createElement(
@@ -73650,7 +73650,7 @@
 	                              "editorChoice__feed__content__lists__list__info__content__conceptArea__icon-3": data.concept.party === 3
 	                            })
 	                          },
-	                          _react2.default.createElement("i", { className: "xi-emoticon-happy" })
+	                          _react2.default.createElement("i", { className: "xi-emoticon-cool" })
 	                        )
 	                      )
 	                    )
@@ -73658,18 +73658,9 @@
 	                  _react2.default.createElement(
 	                    "div",
 	                    { className: "editorChoice__feed__content__lists__list__image" },
-	                    _react2.default.createElement(_reactProgressiveImageLoading2.default, {
-	                      preview: data.image_url,
+	                    _react2.default.createElement("img", {
 	                      src: data.image_url,
-	                      style: styles.image,
-	                      render: function render(src, style) {
-	                        return _react2.default.createElement("img", {
-	                          src: src,
-	                          style: Object.assign(style, {
-	                            width: "100%"
-	                          })
-	                        });
-	                      }
+	                      className: "editorChoice__feed__content__lists__list__image__pic"
 	                    })
 	                  )
 	                );
@@ -73689,7 +73680,7 @@
 	              _react2.default.createElement(
 	                "h4",
 	                { className: "editorChoice__filter__content__title__text" },
-	                "Choose your style"
+	                "What's in your mind?"
 	              )
 	            ),
 	            _react2.default.createElement("hr", null),
