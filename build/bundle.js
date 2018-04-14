@@ -73225,6 +73225,21 @@
 	      });
 	    };
 	
+	    _this.handleStars = function (index) {
+	      var editorChoice = _this.state.editorChoice;
+	
+	      var starLength = Number(editorChoice[index].rating);
+	      console.log(starLength);
+	      var starArray = [];
+	      for (var i = 0; i < starLength; i++) {
+	        return starArray.push(_react2.default.createElement(
+	          "span",
+	          { className: "editorChoice__feed__content__lists__list__info__content__stars__star" },
+	          _react2.default.createElement("i", { className: "xi-star" })
+	        ));
+	      }
+	    };
+	
 	    _this.state = {
 	      isOpen: false,
 	      isClicked: _filter2.default.concept,
@@ -73370,26 +73385,18 @@
 	                      _react2.default.createElement(
 	                        "div",
 	                        { className: "editorChoice__feed__content__lists__list__info__content__stars" },
-	                        _react2.default.createElement(
-	                          "span",
-	                          { className: "editorChoice__feed__content__lists__list__info__content__stars__star" },
-	                          _react2.default.createElement("i", { className: "xi-star" })
-	                        ),
-	                        _react2.default.createElement(
-	                          "span",
-	                          { className: "editorChoice__feed__content__lists__list__info__content__stars__star" },
-	                          _react2.default.createElement("i", { className: "xi-star" })
-	                        ),
-	                        _react2.default.createElement(
-	                          "span",
-	                          { className: "editorChoice__feed__content__lists__list__info__content__stars__star" },
-	                          _react2.default.createElement("i", { className: "xi-star" })
-	                        ),
-	                        _react2.default.createElement(
-	                          "span",
-	                          { className: "editorChoice__feed__content__lists__list__info__content__stars__star" },
-	                          _react2.default.createElement("i", { className: "xi-star" })
-	                        )
+	                        Array.from({ length: Number(data.rating) }, function () {
+	                          return "";
+	                        }).map(function (data, index) {
+	                          return _react2.default.createElement(
+	                            "span",
+	                            {
+	                              key: index,
+	                              className: "editorChoice__feed__content__lists__list__info__content__stars__star"
+	                            },
+	                            _react2.default.createElement("i", { className: "xi-star" })
+	                          );
+	                        })
 	                      ),
 	                      _react2.default.createElement(
 	                        "div",
