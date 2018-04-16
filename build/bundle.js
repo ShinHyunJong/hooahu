@@ -73266,7 +73266,7 @@
 	                newEditor = _lodash2.default.sortBy(newEditor, function (item) {
 	                  return [selectedConcept.map(function (data, index) {
 	                    return item.concept[data];
-	                  })];
+	                  }), item.rating];
 	                }).filter(function (choices) {
 	                  return choices.days === _this.state.selectedDayValue;
 	                }).filter(function (choices) {
@@ -73287,7 +73287,7 @@
 	                _newEditor4 = _lodash2.default.sortBy(_newEditor4, function (item) {
 	                  return [_selectedConcept.map(function (data, index) {
 	                    return item.concept[data];
-	                  })];
+	                  }), item.rating];
 	                }).filter(function (choices) {
 	                  return choices.area === areaJson[index].label;
 	                }).reverse();
@@ -73345,7 +73345,7 @@
 	                newEditor = _lodash2.default.sortBy(newEditor, function (item) {
 	                  return [selectedConcept.map(function (data, index) {
 	                    return item.concept[data];
-	                  })];
+	                  }), item.rating];
 	                }).filter(function (choices) {
 	                  return choices.area === _this.state.selectedAreaValue;
 	                }).filter(function (choices) {
@@ -73368,7 +73368,7 @@
 	                _newEditor5 = _lodash2.default.sortBy(_newEditor5, function (item) {
 	                  return [_selectedConcept2.map(function (data, index) {
 	                    return item.concept[data];
-	                  })];
+	                  }), item.rating];
 	                }).filter(function (choices) {
 	                  return choices.days === dayJson[index].value;
 	                }).reverse();
@@ -73436,7 +73436,6 @@
 	        return a.rating - b.rating;
 	      }).reverse();
 	      this.setState({
-	        selectedConcept: conceptArray,
 	        editorChoice: sortWithRating
 	      });
 	
