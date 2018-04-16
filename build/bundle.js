@@ -73173,7 +73173,6 @@
 	            //     );
 	            //   })
 	            //   .reverse();
-	            console.log(_newEditor);
 	            _newValue[0].clicked = false;
 	            _newValue[index].clicked = true;
 	            _this.setState({
@@ -73225,27 +73224,36 @@
 	
 	    _this.handleArea = function () {
 	      var _ref = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee(index) {
-	        var areaJson, _this$state2, editorChoice, selectedConcept, newEditor;
+	        var areaJson, dayJson, _this$state2, editorChoice, selectedConcept, newEditor, _this$state3, _editorChoice, _selectedConcept, _newEditor4;
 	
 	        return regeneratorRuntime.wrap(function _callee$(_context) {
 	          while (1) {
 	            switch (_context.prev = _context.next) {
 	              case 0:
-	                _context.next = 2;
-	                return _this.setState({ editorChoice: _ec2.default.editorChoice });
+	                areaJson = _filter2.default.area;
+	                dayJson = _filter2.default.day;
+	                _context.next = 4;
+	                return _this.setState({
+	                  editorChoice: _ec2.default.editorChoice
+	                });
 	
-	              case 2:
+	              case 4:
 	                if (!(index === 0)) {
-	                  _context.next = 6;
+	                  _context.next = 8;
 	                  break;
 	                }
 	
-	                _this.setState({ selectedArea: index });
-	                _context.next = 12;
+	                _this.setState({ selectedArea: index, selectedAreaValue: "" });
+	                _context.next = 23;
 	                break;
 	
-	              case 6:
-	                areaJson = _filter2.default.area;
+	              case 8:
+	                if (!(_this.state.selectedDayValue !== "")) {
+	                  _context.next = 17;
+	                  break;
+	                }
+	
+	                _this.setState({ selectedAreaValue: areaJson[index].label });
 	                _this$state2 = _this.state, editorChoice = _this$state2.editorChoice, selectedConcept = _this$state2.selectedConcept;
 	                newEditor = editorChoice.slice();
 	
@@ -73254,12 +73262,33 @@
 	                    return item.concept[data];
 	                  })];
 	                }).filter(function (choices) {
+	                  return choices.days === _this.state.selectedDayValue;
+	                }).filter(function (choices) {
 	                  return choices.area === areaJson[index].label;
 	                }).reverse();
-	                _context.next = 12;
+	                _context.next = 15;
 	                return _this.setState({ editorChoice: newEditor, selectedArea: index });
 	
-	              case 12:
+	              case 15:
+	                _context.next = 23;
+	                break;
+	
+	              case 17:
+	                _this.setState({ selectedAreaValue: areaJson[index].label });
+	                _this$state3 = _this.state, _editorChoice = _this$state3.editorChoice, _selectedConcept = _this$state3.selectedConcept;
+	                _newEditor4 = _editorChoice.slice();
+	
+	                _newEditor4 = _lodash2.default.sortBy(_newEditor4, function (item) {
+	                  return [_selectedConcept.map(function (data, index) {
+	                    return item.concept[data];
+	                  })];
+	                }).filter(function (choices) {
+	                  return choices.area === areaJson[index].label;
+	                }).reverse();
+	                _context.next = 23;
+	                return _this.setState({ editorChoice: _newEditor4, selectedArea: index });
+	
+	              case 23:
 	              case "end":
 	                return _context.stop();
 	            }
@@ -73274,28 +73303,37 @@
 	
 	    _this.handleDay = function () {
 	      var _ref2 = _asyncToGenerator( /*#__PURE__*/regeneratorRuntime.mark(function _callee2(index) {
-	        var dayJson, _this$state3, editorChoice, selectedConcept, newEditor;
+	        var areaJson, dayJson, _this$state4, editorChoice, selectedConcept, newEditor, _this$state5, _editorChoice2, _selectedConcept2, _newEditor5;
 	
 	        return regeneratorRuntime.wrap(function _callee2$(_context2) {
 	          while (1) {
 	            switch (_context2.prev = _context2.next) {
 	              case 0:
-	                _context2.next = 2;
+	                areaJson = _filter2.default.area;
+	                dayJson = _filter2.default.day;
+	                _context2.next = 4;
 	                return _this.setState({ editorChoice: _ec2.default.editorChoice });
 	
-	              case 2:
+	              case 4:
 	                if (!(index === 0)) {
-	                  _context2.next = 6;
+	                  _context2.next = 8;
 	                  break;
 	                }
 	
-	                _this.setState({ selectedDay: index });
-	                _context2.next = 12;
+	                _this.setState({ selectedDay: index, selectedDayValue: "" });
+	                _context2.next = 23;
 	                break;
 	
-	              case 6:
-	                dayJson = _filter2.default.day;
-	                _this$state3 = _this.state, editorChoice = _this$state3.editorChoice, selectedConcept = _this$state3.selectedConcept;
+	              case 8:
+	                if (!(_this.state.selectedAreaValue !== "")) {
+	                  _context2.next = 17;
+	                  break;
+	                }
+	
+	                _this.setState({
+	                  selectedDayValue: dayJson[index].value
+	                });
+	                _this$state4 = _this.state, editorChoice = _this$state4.editorChoice, selectedConcept = _this$state4.selectedConcept;
 	                newEditor = editorChoice.slice();
 	
 	                newEditor = _lodash2.default.sortBy(newEditor, function (item) {
@@ -73303,12 +73341,35 @@
 	                    return item.concept[data];
 	                  })];
 	                }).filter(function (choices) {
+	                  return choices.area === _this.state.selectedAreaValue;
+	                }).filter(function (choices) {
 	                  return choices.days === dayJson[index].value;
 	                }).reverse();
-	                _context2.next = 12;
+	                _context2.next = 15;
 	                return _this.setState({ editorChoice: newEditor, selectedDay: index });
 	
-	              case 12:
+	              case 15:
+	                _context2.next = 23;
+	                break;
+	
+	              case 17:
+	                _this.setState({
+	                  selectedDayValue: dayJson[index].value
+	                });
+	                _this$state5 = _this.state, _editorChoice2 = _this$state5.editorChoice, _selectedConcept2 = _this$state5.selectedConcept;
+	                _newEditor5 = _editorChoice2.slice();
+	
+	                _newEditor5 = _lodash2.default.sortBy(_newEditor5, function (item) {
+	                  return [_selectedConcept2.map(function (data, index) {
+	                    return item.concept[data];
+	                  })];
+	                }).filter(function (choices) {
+	                  return choices.days === dayJson[index].value;
+	                }).reverse();
+	                _context2.next = 23;
+	                return _this.setState({ editorChoice: _newEditor5, selectedDay: index });
+	
+	              case 23:
 	              case "end":
 	                return _context2.stop();
 	            }
@@ -73347,6 +73408,8 @@
 	      isClicked: _filter2.default.concept,
 	      selectedArea: 0,
 	      selectedDay: 0,
+	      selectedAreaValue: "",
+	      selectedDayValue: "",
 	      editorChoice: _ec2.default.editorChoice,
 	      selectedConcept: [],
 	      placeCount: 3
@@ -73394,6 +73457,8 @@
 	      var areaJson = _filter2.default.area;
 	      var editorChoice = this.state.editorChoice;
 	
+	      console.log(this.state.selectedAreaValue);
+	      console.log(this.state.selectedDayValue);
 	
 	      return _react2.default.createElement(
 	        "div",
